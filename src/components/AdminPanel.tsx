@@ -27,7 +27,7 @@ const AdminPanel = () => {
 
   const fetchSubmissions = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/submissions');
+      const response = await axios.get('https://company-service-seven.vercel.app/api/submissions');
       setSubmissions(response.data);
     } catch (error) {
       toast.error('Failed to fetch submissions');
@@ -41,7 +41,7 @@ const AdminPanel = () => {
   const handleDelete = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this submission?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/submissions/${id}`);
+        await axios.delete(`https://company-service-seven.vercel.app/api/submissions/${id}`);
         toast.success('Submission deleted successfully');
         fetchSubmissions();
       } catch (error) {
@@ -60,7 +60,7 @@ const AdminPanel = () => {
 
     try {
       await axios.put(
-        `http://localhost:5000/api/submissions/${editingSubmission._id}`,
+        `https://company-service-seven.vercel.app/api/submissions/${editingSubmission._id}`,
         editingSubmission
       );
       toast.success('Submission updated successfully');
